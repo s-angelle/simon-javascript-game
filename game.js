@@ -13,12 +13,18 @@ nextSequence = () => {
     // Make the element containing the randomChosenColor ID flash.
     $(`#${randomChosenColor}`).fadeOut(100).fadeIn(100);
 
-    // Make a corresponding sound for the randomly chosen color.
+    // Make a corresponding sound for the randomly selected color.
     const audioSound = new Audio(`sounds/${randomChosenColor}.mp3`);
 
     audioSound.play();
 }
 
 nextSequence();
+
+
+//  Select button clicked and save the id in a variable.
+$('.btn').on('click', function(){
+    alert('button clicked');
+})
 
 
