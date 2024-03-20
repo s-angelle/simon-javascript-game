@@ -1,24 +1,24 @@
 const buttonColors = ["red", "blue", "green", "yellow"];
 let gamePattern = [];
-
-// Create a variable that will select a random item from buttonColors array
-let randomChosenColor = buttonColors[Math.floor(Math.random() * buttonColors.length)]
-
-
-// Create a function that generates a random number from 0 - 3
+let randomChosenColor = buttonColors[Math.floor(Math.random() * buttonColors.length)];
 
 nextSequence = () => {
 
+    // Create a variable that generates a random number from 0- 3.
     const randomNumber = Math.floor(Math.random() * 4);
 
+    // Push the item to the gamePattern array.
     gamePattern.push(randomChosenColor);
 
-    console.log(randomChosenColor);
+    // Make the element containing the randomChosenColor ID flash.
+    $(`#${randomChosenColor}`).fadeOut(100).fadeIn(100);
 
-    // console.log(gamePattern);
+    // Make a corresponding sound for the randomly chosen color.
+    const audioSound = new Audio(`sounds/${randomChosenColor}.mp3`);
+
+    audioSound.play();
 }
 
-// nextSequence();
+nextSequence();
 
 
-console.log($(`#${randomChosenColor}`));
