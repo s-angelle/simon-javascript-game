@@ -1,6 +1,7 @@
 const buttonColors = ["red", "blue", "green", "yellow"];
-let gamePattern = [];
 let randomChosenColor = buttonColors[Math.floor(Math.random() * buttonColors.length)];
+const gamePattern = [];
+const userClickedPattern = [];
 
 nextSequence = () => {
 
@@ -22,9 +23,16 @@ nextSequence = () => {
 nextSequence();
 
 
-//  Select button clicked and save the id in a variable.
-$(`.btn`).on('click', function(){
+// Add event listener for buttons clicked.
+
+$('.btn').on('click', function(){
+
+    // store selected object in variable.
     let userChosenColor = this.id;
+
+    // add to the userClickedPattern array.
+    userClickedPattern.push(userChosenColor);
+
 })
 
 
