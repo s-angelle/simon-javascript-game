@@ -23,8 +23,11 @@ nextSequence();
 
 
 //  Select button clicked and save the id in a variable.
-$('.btn').on('click', function(){
-    alert('button clicked');
+$(`.btn`).on('click', function(){
+    let userChosenColor = this.id;
 })
+
+
+
 
 
