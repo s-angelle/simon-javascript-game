@@ -3,6 +3,40 @@ let randomChosenColor = buttonColors[Math.floor(Math.random() * buttonColors.len
 const gamePattern = [];
 const userClickedPattern = [];
 
+
+
+// Create a function that will play a sound corresponding to the color selected.
+
+playSound = (name) => {
+
+    switch (name) {
+
+        case 'red':
+            name = new Audio(`sounds/${name}.mp3`);
+            name.play();
+
+        case 'blue':
+            name = new Audio(`sounds/${name}.mp3`);
+            name.play();
+
+        case 'green':
+            name = new Audio(`sounds/${name}.mp3`);
+            name.play();
+
+        case 'yellow':
+            name = new Audio(`sounds/${name}.mp3`);
+            name.play();
+
+        default:
+            console.log('Error');
+    }
+
+    name.play();
+}
+
+
+// Create a function that will determine the pattern sequence user must follow.
+
 nextSequence = () => {
 
     // Create a variable that generates a random number from 0- 3.
@@ -14,16 +48,16 @@ nextSequence = () => {
     // Make the element containing the randomChosenColor ID flash.
     $(`#${randomChosenColor}`).fadeOut(100).fadeIn(100);
 
-    // Make a corresponding sound for the randomly selected color.
-    const audioSound = new Audio(`sounds/${randomChosenColor}.mp3`);
+    // Call playSound function.
+    playSound(randomChosenColor);
 
-    audioSound.play();
 }
 
 nextSequence();
 
 
-// Add event listener for buttons clicked.
+
+// Add an event listener to the buttons.
 
 $('.btn').on('click', function(){
 
@@ -33,7 +67,10 @@ $('.btn').on('click', function(){
     // add to the userClickedPattern array.
     userClickedPattern.push(userChosenColor);
 
+    // Call playSound function.
+    playSound(userChosenColor);
 })
+
 
 
 
