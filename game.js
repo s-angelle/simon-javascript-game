@@ -28,12 +28,21 @@ playSound = (name) => {
             name.play();
 
         default:
-            console.log('Error');
+            name.play();
     }
 
     name.play();
 }
 
+
+
+// Create a function that will animate when a color is chosen.
+
+
+animatePress = (currentColor) => {
+
+    currentColor.addClass('pressed');
+}
 
 // Create a function that will determine the pattern sequence user must follow.
 
@@ -69,10 +78,22 @@ $('.btn').on('click', function(){
 
     // Call playSound function.
     playSound(userChosenColor);
+
+    animatePress(userChosenColor);
+
 })
 
 
+// Create a function that adds class list to clicked button.
 
+animatePress = (currentColor) => {
 
+    // Add 'pressed' class to buttons that are clicked.
+    $(`#${currentColor}`).addClass("pressed");
 
+    // Remove 'pressed' class 100 miliseconds after button is clicked.
+    setTimeout(function() {
+    $(`#${currentColor}`).removeClass("pressed");    
+    }, 100);
 
+    }
