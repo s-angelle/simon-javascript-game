@@ -2,12 +2,21 @@ const buttonColors = ["red", "blue", "green", "yellow"];
 let randomChosenColor = buttonColors[Math.floor(Math.random() * buttonColors.length)];
 const gamePattern = [];
 const userClickedPattern = [];
+let level = 0;
+let started = false;
+
 
 
 
 // Create a function that will determine the pattern sequence user must follow.
 
 nextSequence = () => {
+
+    // Increase the level by 1 every time function is called.
+    level++;
+
+    // Update h1 element to reflect current game level.
+    $('h1').text(`Level ${level} `);
 
     // Create a variable that generates a random number from 0- 3.
     const randomNumber = Math.floor(Math.random() * 4);
@@ -95,6 +104,22 @@ animatePress = (currentColor) => {
 
     }
 
-// Create an event listener that starts the game upon a keyboard key being pressed once.
+// Create an event listener that starts the game upon the first keyboard key being pressed.
 
-$(document).one('keypress', () => nextSequence());
+$(document).one('keypress', function(){
+
+    if(!started) {
+
+         // Change the main heading to reveal the current game level.
+         $('h1').text(`Level ${level} `);
+
+
+        // Activate sequence.
+        nextSequence();
+
+        // Start game.
+        started = true;
+
+    }
+
+});
