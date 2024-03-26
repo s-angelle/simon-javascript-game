@@ -4,4 +4,4 @@ This project is a JavaScript "Simon" game that plays out a sequence by activatin
 
 ## Project Goals
 
-The goal of this project was to practice advanced DOM manipulation, showcase all Javascript skills gained, and display a thorough understanding of JavaScript logic, rules, and concepts.
+The goal of this project was to practice jQuery, advanced DOM manipulation, showcase all Javascript skills gained, and display a thorough understanding of JavaScript logic, rules, and concepts.
