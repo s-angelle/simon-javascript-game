@@ -5,6 +5,25 @@ const userClickedPattern = [];
 
 
 
+// Create a function that will determine the pattern sequence user must follow.
+
+nextSequence = () => {
+
+    // Create a variable that generates a random number from 0- 3.
+    const randomNumber = Math.floor(Math.random() * 4);
+
+    // Push the item to the gamePattern array.
+    gamePattern.push(randomChosenColor);
+
+    // Make the element containing the randomChosenColor ID flash.
+    $(`#${randomChosenColor}`).fadeOut(100).fadeIn(100);
+
+    // Call playSound function.
+    playSound(randomChosenColor);
+
+}
+
+
 // Create a function that will play a sound corresponding to the color selected.
 
 playSound = (name) => {
@@ -44,28 +63,6 @@ animatePress = (currentColor) => {
     currentColor.addClass('pressed');
 }
 
-// Create a function that will determine the pattern sequence user must follow.
-
-nextSequence = () => {
-
-    // Create a variable that generates a random number from 0- 3.
-    const randomNumber = Math.floor(Math.random() * 4);
-
-    // Push the item to the gamePattern array.
-    gamePattern.push(randomChosenColor);
-
-    // Make the element containing the randomChosenColor ID flash.
-    $(`#${randomChosenColor}`).fadeOut(100).fadeIn(100);
-
-    // Call playSound function.
-    playSound(randomChosenColor);
-
-}
-
-nextSequence();
-
-
-
 // Add an event listener to the buttons.
 
 $('.btn').on('click', function(){
@@ -97,3 +94,7 @@ animatePress = (currentColor) => {
     }, 100);
 
     }
+
+// Create an event listener that starts the game upon a keyboard key being pressed once.
+
+$(document).one('keypress', () => nextSequence());
