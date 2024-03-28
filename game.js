@@ -37,8 +37,14 @@ nextSequence = () => {
 
 checkAnswer = currentLevel => {
 
-    
 
+    if (userClickedPattern[currentLevel] === gamePattern[currentLevel]) {
+
+        console.log('Sucess');
+
+    } else {
+        console.log('Wrong');
+    }
 
 }
 
@@ -82,20 +88,26 @@ animatePress = (currentColor) => {
     currentColor.addClass('pressed');
 }
 
+
 // Add an event listener to the buttons.
 
 $('.btn').on('click', function(){
 
-    // store selected object in variable.
+    // Store selected object in variable.
     let userChosenColor = this.id;
 
-    // add to the userClickedPattern array.
+    // Add to the userClickedPattern array.
     userClickedPattern.push(userChosenColor);
 
     // Call playSound function.
     playSound(userChosenColor);
 
+    // Animate element selected by user.
     animatePress(userChosenColor);
+
+    // Call function to analyze user's selection
+    checkAnswer(userClickedPattern.length - 1)
+
 
 })
 
@@ -122,7 +134,6 @@ $(document).one('keypress', function(){
 
          // Change the main heading to reveal the current game level.
          $('h1').text(`Level ${level} `);
-
 
         // Activate sequence.
         nextSequence();
