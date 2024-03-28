@@ -33,6 +33,16 @@ nextSequence = () => {
 }
 
 
+// Create a function that checks the user's answer against the computer's sequence.
+
+checkAnswer = currentLevel => {
+
+    
+
+
+}
+
+
 // Create a function that will play a sound corresponding to the color selected.
 
 playSound = (name) => {
