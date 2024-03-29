@@ -56,6 +56,7 @@ checkAnswer = currentLevel => {
 
         console.log('Sucess');
 
+        // Check if user has completed sequence. Resume game if so.
         if (userClickedPattern.length === gamePattern.length) {
 
             setTimeout(function(){ nextSequence();
@@ -64,16 +65,20 @@ checkAnswer = currentLevel => {
 
     } else {
 
+        // Play audio if user guessed incorrectly.
         let wrongAudio = new Audio('sounds/wrong.mp3');
 
         wrongAudio.play();
 
+        // Activate CSS if user fails.
         $('body').addClass('game-over');
 
         setTimeout(function(){
 
         $('body').removeClass('game-over');
         },200);
+
+        $('h1').text('Game Over, Press Any Key to Restart');
     }
 
 }
