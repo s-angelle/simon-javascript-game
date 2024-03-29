@@ -1,5 +1,5 @@
 const buttonColors = ["red", "blue", "green", "yellow"];
-const gamePattern = [];
+let gamePattern = [];
 let userClickedPattern = [];
 let level = 0;
 let started = false;
@@ -79,6 +79,12 @@ checkAnswer = currentLevel => {
         },200);
 
         $('h1').text('Game Over, Press Any Key to Restart');
+
+        // Restart the game
+        startOver();
+
+        console.log(gamePattern + started + level);
+
     }
 
 }
@@ -113,6 +119,32 @@ nextSequence = () => {
     playSound(randomChosenColor);
 
 }
+
+
+// Create a function to restart the game
+
+startOver = () => {
+
+    $(document).one('keypress', function(){
+
+        // Reset levels.
+        level = 0;
+
+        // Reset game pattern.
+        gamePattern = [];
+    
+        // Change the main heading to reveal the current game level.
+        $('h1').text(`Level ${level} `);
+    
+        // Activate sequence.
+        nextSequence();
+    
+        // Start game.
+        started = true;
+    
+        }
+    
+    )};
 
 
 
