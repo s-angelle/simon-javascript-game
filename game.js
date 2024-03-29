@@ -11,14 +11,11 @@ $(document).one('keypress', function(){
 
     if(!started) {
 
-         // Change the main heading to reveal the current game level.
-         $('h1').text(`Level ${level} `);
+        // Start game.
+        started = true;
 
         // Activate sequence.
         nextSequence();
-
-        // Start game.
-        started = true;
 
     }
 
@@ -47,10 +44,9 @@ $('.btn').on('click', function(){
 
 })
 
-// Create a function that checks the user's answer against the computer's sequence.
+// Create a function that checks the user's answers against the computer's sequence.
 
 checkAnswer = currentLevel => {
-
 
     if (userClickedPattern[currentLevel] === gamePattern[currentLevel]) {
 
@@ -82,8 +78,6 @@ checkAnswer = currentLevel => {
 
         // Restart the game
         startOver();
-
-        console.log(gamePattern + started + level);
 
     }
 
@@ -132,20 +126,16 @@ startOver = () => {
 
         // Reset game pattern.
         gamePattern = [];
-    
-        // Change the main heading to reveal the current game level.
-        $('h1').text(`Level ${level} `);
-    
-        // Activate sequence.
-        nextSequence();
+
+        // Reset game status
+        started = false;
     
         // Start game.
-        started = true;
+        nextSequence();
     
         }
     
     )};
-
 
 
 
@@ -177,7 +167,6 @@ playSound = (name) => {
 
     name.play();
 }
-
 
 
 // Create a function that will animate when a color is chosen.
