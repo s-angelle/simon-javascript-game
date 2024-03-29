@@ -64,7 +64,16 @@ checkAnswer = currentLevel => {
 
     } else {
 
-        console.log('Wrong');
+        let wrongAudio = new Audio('sounds/wrong.mp3');
+
+        wrongAudio.play();
+
+        $('body').addClass('game-over');
+
+        setTimeout(function(){
+
+        $('body').removeClass('game-over');
+        },200);
     }
 
 }
